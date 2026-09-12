@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BoardRouteImport } from './routes/board'
+import { Route as GlossaryRouteImport } from './routes/glossary'
+import { Route as ProgressRouteImport } from './routes/progress'
+import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as LearnIndexRouteImport } from './routes/learn.index'
+import { Route as LearnCategoryRouteImport } from './routes/learn.$category'
+import { Route as LessonLessonIdRouteImport } from './routes/lesson.$lessonId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BoardRoute = BoardRouteImport.update({
+  id: '/board',
+  path: '/board',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlossaryRoute = GlossaryRouteImport.update({
+  id: '/glossary',
+  path: '/glossary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressRoute = ProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnIndexRoute = LearnIndexRouteImport.update({
+  id: '/learn/',
+  path: '/learn/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnCategoryRoute = LearnCategoryRouteImport.update({
+  id: '/learn/$category',
+  path: '/learn/$category',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LessonLessonIdRoute = LessonLessonIdRouteImport.update({
+  id: '/lesson/$lessonId',
+  path: '/lesson/$lessonId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
+  '/glossary': typeof GlossaryRoute
+  '/progress': typeof ProgressRoute
+  '/quiz': typeof QuizRoute
+  '/learn/$category': typeof LearnCategoryRoute
+  '/lesson/$lessonId': typeof LessonLessonIdRoute
+  '/learn/': typeof LearnIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
+  '/glossary': typeof GlossaryRoute
+  '/progress': typeof ProgressRoute
+  '/quiz': typeof QuizRoute
+  '/learn/$category': typeof LearnCategoryRoute
+  '/lesson/$lessonId': typeof LessonLessonIdRoute
+  '/learn': typeof LearnIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/board': typeof BoardRoute
+  '/glossary': typeof GlossaryRoute
+  '/progress': typeof ProgressRoute
+  '/quiz': typeof QuizRoute
+  '/learn/$category': typeof LearnCategoryRoute
+  '/lesson/$lessonId': typeof LessonLessonIdRoute
+  '/learn/': typeof LearnIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/board'
+    | '/glossary'
+    | '/progress'
+    | '/quiz'
+    | '/learn/$category'
+    | '/lesson/$lessonId'
+    | '/learn/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/board'
+    | '/glossary'
+    | '/progress'
+    | '/quiz'
+    | '/learn/$category'
+    | '/lesson/$lessonId'
+    | '/learn'
+  id:
+    | '__root__'
+    | '/'
+    | '/board'
+    | '/glossary'
+    | '/progress'
+    | '/quiz'
+    | '/learn/$category'
+    | '/lesson/$lessonId'
+    | '/learn/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BoardRoute: typeof BoardRoute
+  GlossaryRoute: typeof GlossaryRoute
+  ProgressRoute: typeof ProgressRoute
+  QuizRoute: typeof QuizRoute
+  LearnCategoryRoute: typeof LearnCategoryRoute
+  LessonLessonIdRoute: typeof LessonLessonIdRoute
+  LearnIndexRoute: typeof LearnIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/board': {
+      id: '/board'
+      path: '/board'
+      fullPath: '/board'
+      preLoaderRoute: typeof BoardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glossary': {
+      id: '/glossary'
+      path: '/glossary'
+      fullPath: '/glossary'
+      preLoaderRoute: typeof GlossaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress': {
+      id: '/progress'
+      path: '/progress'
+      fullPath: '/progress'
+      preLoaderRoute: typeof ProgressRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/': {
+      id: '/learn/'
+      path: '/learn'
+      fullPath: '/learn/'
+      preLoaderRoute: typeof LearnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn/$category': {
+      id: '/learn/$category'
+      path: '/learn/$category'
+      fullPath: '/learn/$category'
+      preLoaderRoute: typeof LearnCategoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lesson/$lessonId': {
+      id: '/lesson/$lessonId'
+      path: '/lesson/$lessonId'
+      fullPath: '/lesson/$lessonId'
+      preLoaderRoute: typeof LessonLessonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BoardRoute: BoardRoute,
+  GlossaryRoute: GlossaryRoute,
+  ProgressRoute: ProgressRoute,
+  QuizRoute: QuizRoute,
+  LearnCategoryRoute: LearnCategoryRoute,
+  LessonLessonIdRoute: LessonLessonIdRoute,
+  LearnIndexRoute: LearnIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
