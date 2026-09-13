@@ -91,7 +91,7 @@ function FormationView() {
 function ScenarioView() {
   const [index, setIndex] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
-  const s = scenarios[index];
+  const s = scenarios[index]!;
 
   const go = (next: number) => {
     setIndex((next + scenarios.length) % scenarios.length);
