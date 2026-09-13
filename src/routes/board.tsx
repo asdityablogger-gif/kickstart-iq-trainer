@@ -80,7 +80,7 @@ function FormationView() {
           </button>
         ))}
       </div>
-      <Pitch key={id} markers={formations[id]} />
+      <Pitch key={id} markers={formations[id] ?? []} />
       <p className="mt-3 text-center text-xs text-muted-foreground">
         Tap a formation to see how the eleven players line up.
       </p>
