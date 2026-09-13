@@ -27,3 +27,15 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+## Android (Capacitor)
+
+The app is fully offline — all lessons, quizzes and progress live on the device.
+
+1. `npm install`
+2. `npm run build:mobile` — builds a static bundle into `dist/client`
+3. `npx cap sync android`
+4. Open the `android` folder in Android Studio and press Run.
+
+`npm run android` does steps 2–4 in one go. The Android project is already in
+the repo, so importing `android/` in Android Studio works straight away.
