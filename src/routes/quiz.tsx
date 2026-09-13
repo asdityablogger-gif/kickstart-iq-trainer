@@ -124,6 +124,7 @@ function QuizPage() {
   }
 
   const q = set[index];
+  if (!q) return null;
   const last = index === set.length - 1;
 
   const next = () => {
