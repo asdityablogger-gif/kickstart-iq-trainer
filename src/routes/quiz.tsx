@@ -35,7 +35,10 @@ function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+    const x = a[i] as T;
+    const y = a[j] as T;
+    a[i] = y;
+    a[j] = x;
   }
   return a;
 }
@@ -121,6 +124,7 @@ function QuizPage() {
   }
 
   const q = set[index];
+  if (!q) return null;
   const last = index === set.length - 1;
 
   const next = () => {

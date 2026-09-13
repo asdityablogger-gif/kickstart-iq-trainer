@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Learn Basic Football IQ</string>
+    <string name="title_activity_main">Learn Basic Football IQ</string>
+    <string name="package_name">app.lovable.footballiq</string>
+    <string name="custom_url_scheme">app.lovable.footballiq</string>
+</resources>
